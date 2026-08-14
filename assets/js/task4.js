@@ -19,13 +19,10 @@ const stringsHref = [
 
 function unSafe(arr) {
   const notSafe = [`http://`, `ftp://`];
-  let result = [];
-  for (let link of arr) {
-    if (notSafe.some((elem) => link.toLowerCase().startsWith(elem))) {
-      result.push(link);
-    }
-  }
-  return result;
+
+  return arr.filter((link) =>
+    notSafe.some((elem) => link.toLowerCase().startsWith(elem)),
+  );
 }
 
 console.log(unSafe(stringsHref));
